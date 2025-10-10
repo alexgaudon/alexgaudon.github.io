@@ -17,7 +17,7 @@ const Navbar = ({ currentPath }: NavbarProps) => {
 						<a
 							key={link.href}
 							href={link.href}
-							className="text-lg font-bold relative transition-colors duration-300"
+							className="text-lg font-bold relative transition-colors duration-300 flex items-center gap-2"
 						>
 							<span className="hover:underline relative">
 								{link.label}

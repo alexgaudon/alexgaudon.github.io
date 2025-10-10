@@ -2,11 +2,19 @@
 import Layout from './layout.astro';
 ---
 
+<style is:global>
+  ::view-transition-old(tallyo),
+  ::view-transition-new(tallyo) {
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+</style>
+
 <Layout>
   <h1 class="text-2xl font-bold mb-4">Projects</h1>
   <ul class="list-disc list-inside space-y-2">
     <li>
-      <a href="https://github.com/AlexGaudon/tallyo" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">Tallyo</a>
+      <a href="https://github.com/AlexGaudon/tallyo" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer" transition:name="tallyo">Tallyo</a>
       – My take on a personal finance tracker, since <a href="https://en.wikipedia.org/wiki/Intuit_Mint#Shut_down" class="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">Mint</a> ran out of money.
     </li>
     <li>

@@ -5,11 +5,22 @@ interface Props {
 
 const { currentPath } = Astro.props;
 
+// Normalize path by removing trailing slash (except for root)
+const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+
 const navLinks = [
   { href: "/", label: "alexgaudon.dev", isBrand: true },
   { href: "/projects", label: "Projects" },
   { href: "/uses", label: "Uses" },
 ];
+
+// Helper function to check if a link is active
+const isActive = (href: string) => {
+  if (href === '/') {
+    return normalizedPath === '/';
+  }
+  return normalizedPath === href || normalizedPath.startsWith(`${href}/`);
+};
 ---
 
 <nav class="p-4">
@@ -21,21 +32,19 @@ const navLinks = [
           href={link.href}
           class="text-lg font-bold relative transition-colors duration-300 flex items-center gap-2"
         >
-          <span class="hover:underline relative">
+          <span class={!isActive(link.href) ? "hover:underline relative" : "relative"}>
             {link.label}
-            <span
-              class={`absolute left-0 -bottom-1 w-full h-0.5 bg-current transition-all duration-300 ${
-                currentPath === link.href
-                  ? "opacity-100 scale-x-100"
-                  : "opacity-0 scale-x-0"
-              }`}
-              style={{
-                transformOrigin: "left",
-                transitionProperty: "opacity, transform",
-                transform: currentPath === link.href ? "scaleX(1)" : "scaleX(0)",
-              }}
-              aria-hidden="true"
-            />
+            {!isActive(link.href) && (
+              <span
+                class="absolute left-0 -bottom-1 w-full h-0.5 bg-current transition-all duration-300 opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100"
+                style={{
+                  transformOrigin: "left",
+                  transitionProperty: "opacity, transform",
+                  transform: "scaleX(0)",
+                }}
+                aria-hidden="true"
+              />
+            )}
           </span>
         </a>
       ))}
@@ -47,23 +56,21 @@ const navLinks = [
             <li>
               <a
                 href={link.href}
-                class="relative transition-colors duration-300"
+                class={`relative transition-colors duration-300 ${isActive(link.href) ? 'font-bold' : 'text-stone-400'}`}
               >
-                <span class="hover:underline relative">
+                <span class={!isActive(link.href) ? "hover:underline relative" : "relative"}>
                   {link.label}
-                  <span
-                    class={`absolute left-0 -bottom-1 w-full h-0.5 bg-current transition-all duration-300 ${
-                      currentPath === link.href
-                        ? "opacity-100 scale-x-100"
-                        : "opacity-0 scale-x-0"
-                    }`}
-                    style={{
-                      transformOrigin: "left",
-                      transitionProperty: "opacity, transform",
-                      transform: currentPath === link.href ? "scaleX(1)" : "scaleX(0)",
-                    }}
-                    aria-hidden="true"
-                  />
+                  {!isActive(link.href) && (
+                    <span
+                      class="absolute left-0 -bottom-1 w-full h-0.5 bg-current transition-all duration-300 opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100"
+                      style={{
+                        transformOrigin: "left",
+                        transitionProperty: "opacity, transform",
+                        transform: "scaleX(0)",
+                      }}
+                      aria-hidden="true"
+                    />
+                  )}
                 </span>
               </a>
             </li>
@@ -72,4 +79,3 @@ const navLinks = [
     </div>
   </div>
 </nav>
-

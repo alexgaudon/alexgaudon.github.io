@@ -5,6 +5,7 @@ interface NavbarProps {
 const navLinks = [
 	{ href: "/", label: "alexgaudon.dev", isBrand: true },
 	{ href: "/projects", label: "Projects" },
+	{ href: "/uses", label: "Uses" },
 ];
 
 const Navbar = ({ currentPath }: NavbarProps) => {

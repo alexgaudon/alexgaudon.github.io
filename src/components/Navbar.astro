@@ -1,25 +1,25 @@
 ---
 interface Props {
-  currentPath: string;
+	currentPath: string;
 }
 
 const { currentPath } = Astro.props;
 
 // Normalize path by removing trailing slash (except for root)
-const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+const normalizedPath =
+	currentPath === "/" ? "/" : currentPath.replace(/\/$/, "");
 
 const navLinks = [
-  { href: "/", label: "alexgaudon.dev", isBrand: true },
-  { href: "/projects", label: "Projects" },
-  { href: "/uses", label: "Uses" },
+	{ href: "/", label: "alexgaudon.dev", isBrand: true },
+	{ href: "/projects", label: "Projects" },
 ];
 
 // Helper function to check if a link is active
 const isActive = (href: string) => {
-  if (href === '/') {
-    return normalizedPath === '/';
-  }
-  return normalizedPath === href || normalizedPath.startsWith(`${href}/`);
+	if (href === "/") {
+		return normalizedPath === "/";
+	}
+	return normalizedPath === href || normalizedPath.startsWith(`${href}/`);
 };
 ---
 

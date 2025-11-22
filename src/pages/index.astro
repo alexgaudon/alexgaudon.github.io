@@ -1,21 +1,28 @@
 ---
-import '../styles/global.css';
-import Layout from './layout.astro';
+import "../styles/global.css";
+import Layout from "./layout.astro";
+const now = new Date();
+const isAfterDecember1st = now.getMonth() === 11 && now.getDate() >= 1;
 ---
 <Layout>
   <section class="space-y-4">
     <p>
-      Hey, I’m Alex Gaudon. I build web stuff.
+      Hey, I'm Alex Gaudon. I build web stuff.
     </p>
+    {isAfterDecember1st ? (
+      <p>
+        Software Dev @
+        <a
+          href="https://www.colabsoftware.com"
+          class="text-blue-400 underline hover:text-blue-300 transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >CoLab Software</a>.
+      </p>
+    ) : <p>Between jobs at the moment. Check back on December 1st :)</p>}
     <p>
-      Right now I write code for risk folks over at
+      Building 
       <a
-        href="https://www.clearrisk.com"
-        class="text-blue-400 underline hover:text-blue-300 transition-colors"
-        target="_blank"
-        rel="noopener noreferrer"
-      >ClearRisk</a>
-      and building <a
         href="https://github.com/AlexGaudon/tallyo"
         class="text-blue-400 underline hover:text-blue-300 transition-colors"
         target="_blank"
@@ -24,13 +31,20 @@ import Layout from './layout.astro';
       >Tallyo</a> in my free time.
     </p>
     <p>
+      Prev Software Dev @
+      <a
+        href="https://www.clearrisk.com"
+        class="text-blue-400 underline hover:text-blue-300 transition-colors"
+        target="_blank"
+        rel="noopener noreferrer"
+      >ClearRisk</a>.
+    </p>
+    <p>
       This site has a few of my
       <a
         href="/projects"
         class="text-blue-400 underline hover:text-blue-300 transition-colors"
-      >projects</a>
-      and some ramblings about tech
-      <span class="text-stone-400 italic">(yeah, maybe a blog eventually)</span>.
+      >projects</a>.
     </p>
     <p>
       Want to say hi? I'm usually hanging out Thursdays at

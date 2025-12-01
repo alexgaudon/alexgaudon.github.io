@@ -1,25 +1,21 @@
 ---
 import "../styles/global.css";
 import Layout from "./layout.astro";
-const now = new Date();
-const isAfterDecember1st = now.getMonth() === 11 && now.getDate() >= 1;
 ---
 <Layout>
   <section class="space-y-4">
     <p>
       Hey, I'm Alex Gaudon. I build web stuff.
     </p>
-    {isAfterDecember1st ? (
-      <p>
-        Software Dev @
-        <a
-          href="https://www.colabsoftware.com"
-          class="text-blue-400 underline hover:text-blue-300 transition-colors"
-          target="_blank"
-          rel="noopener noreferrer"
-        >CoLab Software</a>.
-      </p>
-    ) : <p>Between jobs at the moment. Check back on December 1st :)</p>}
+    <p>
+      Software Dev @
+      <a
+        href="https://www.colabsoftware.com"
+        class="text-blue-400 underline hover:text-blue-300 transition-colors"
+        target="_blank"
+        rel="noopener noreferrer"
+      >CoLab Software</a>.
+    </p>
     <p>
       Building 
       <a

@@ -1,55 +1,59 @@
 ---
 interface Props {
-	currentPath: string;
+	currentPage: string;
 }
 
-const { currentPath } = Astro.props;
+const { currentPage } = Astro.props;
 
-// Normalize path by removing trailing slash (except for root)
-const normalizedPath =
-	currentPath === "/" ? "/" : currentPath.replace(/\/$/, "");
+import { getCollection } from 'astro:content';
 
-const navLinks = [
-	{ href: "/", label: "alexgaudon.dev", isBrand: true },
-	{ href: "/projects", label: "Projects" },
-];
+const pages = await getCollection('pages');
 
-// Helper function to check if a link is active
-const isActive = (href: string) => {
+const navLinks = pages.map((page) => ({
+	href: `/${page.slug === 'index' ? '' : page.slug}`,
+	label: page.slug,
+})).sort((a, b) => {
+	if (a.href === '/') return -1;
+	if (b.href === '/') return 1;
+	return a.label.localeCompare(b.label);
+});
+
+const isActive = (href: string, currentPage: string) => {
 	if (href === "/") {
-		return normalizedPath === "/";
+		return currentPage === "index";
 	}
-	return normalizedPath === href || normalizedPath.startsWith(`${href}/`);
+	const page = href.replace(/^\//, "");
+	return currentPage === page;
 };
+
+const date = new Date().toLocaleString("en-US", {
+	month: "short",
+	day: "2-digit",
+});
 ---
 
-<nav class="p-4 border-b-2 border-white">
-  <div class="w-full md:w-1/2 mx-auto flex justify-between items-center">
-    {navLinks
-      .filter((link) => link.isBrand)
-      .map((link) => (
-        <a
-          href={link.href}
-          class="text-lg font-bold border-2 border-white px-4 py-2 text-white hover:bg-white hover:text-black transition-colors"
-        >
-          [{link.label}]
-        </a>
-      ))}
-    <div class="flex items-center space-x-2">
-      <ul class="flex space-x-2">
-        {navLinks
-          .filter((link) => !link.isBrand)
-          .map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class={`border-2 border-white px-4 py-2 hover:bg-white hover:text-black transition-colors ${isActive(link.href) ? 'bg-white text-black font-bold' : 'text-white'}`}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-      </ul>
-    </div>
-  </div>
+<nav class="p-3 sm:p-4">
+	<div class="flex flex-wrap gap-1 sm:gap-2 text-lg sm:text-2xl">
+		<span class="text-green-400">guest@alexgaudon.dev</span>:<span class="text-blue-400">~</span>$
+		<span class="text-white hidden sm:inline">ls -lah</span>
+		<span class="text-white inline sm:hidden">ls</span>
+	</div>
+	<div class="mt-1 sm:mt-2 ml-3 sm:ml-4 text-lg sm:text-2xl">
+		<div class="text-gray-400 text-sm sm:text-base hidden sm:block">total 8</div>
+		{navLinks.map((link) => (
+			<div class="flex gap-2 items-baseline">
+				<span class="text-gray-500 text-sm sm:text-base hidden sm:inline">-rw-r--r--</span>
+				<span class="text-gray-500 text-sm sm:text-base hidden sm:inline">guest</span>
+				<span class="text-gray-500 text-sm sm:text-base hidden sm:inline">guest</span>
+				<span class="text-gray-500 text-sm sm:text-base hidden sm:inline">4.0K</span>
+				<span class="text-gray-500 text-sm sm:text-base hidden sm:inline">{date}</span>
+				<a
+					href={link.href}
+					class={`${isActive(link.href, currentPage) ? 'text-white font-bold' : 'text-blue-300'} hover:text-white underline decoration-blue-300 hover:decoration-white`}
+				>
+					{link.label}
+				</a>
+			</div>
+		))}
+	</div>
 </nav>

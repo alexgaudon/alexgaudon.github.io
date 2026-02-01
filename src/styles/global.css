@@ -12,6 +12,19 @@
 	--border-secondary: #333333;
 }
 
+@media (prefers-color-scheme: light) {
+	:root {
+		--bg-primary: #ffffff;
+		--bg-secondary: #f5f5f5;
+		--bg-tertiary: #e0e0e0;
+		--text-primary: #000000;
+		--text-secondary: #555555;
+		--text-muted: #999999;
+		--border-color: #000000;
+		--border-secondary: #cccccc;
+	}
+}
+
 * {
 	font-family: "Courier New", Courier, monospace;
 	box-sizing: border-box;
@@ -21,6 +34,12 @@ html,
 body {
 	background-color: var(--bg-primary);
 	color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+	html {
+		font-size: 14px;
+	}
 }
 
 /* Blocky borders and corners */
@@ -41,28 +60,16 @@ body {
 a {
 	color: var(--text-primary);
 	text-decoration: none;
-	border-bottom: 2px solid var(--text-primary);
-	transition:
-		background-color 0.2s,
-		color 0.2s;
+	border-bottom: 1px solid var(--text-primary);
 }
 
 a:hover {
-	background-color: var(--text-primary);
-	color: var(--bg-primary);
+	color: var(--text-muted);
 }
 
 /* Navigation link specific */
 nav a {
-	border: 2px solid var(--border-color);
-	padding: 0.5rem 1rem;
-	display: inline-block;
-	border-bottom: 2px solid var(--border-color) !important;
-}
-
-nav a:hover,
-nav a.bg-white {
-	color: var(--bg-primary) !important;
+	border-bottom: 2px solid var(--text-primary);
 }
 
 nav a:hover {
@@ -114,4 +121,13 @@ nav a:hover {
 ::selection {
 	background-color: var(--text-primary);
 	color: var(--bg-primary);
+}
+
+/* Terminal output styling */
+.terminal-output {
+	font-family: "Courier New", Courier, monospace;
+}
+
+.terminal-output a {
+	border-bottom: 1px solid var(--text-primary);
 }

@@ -23,55 +23,29 @@ const isActive = (href: string) => {
 };
 ---
 
-<nav class="p-4">
+<nav class="p-4 border-b-2 border-white">
   <div class="w-full md:w-1/2 mx-auto flex justify-between items-center">
     {navLinks
       .filter((link) => link.isBrand)
       .map((link) => (
         <a
           href={link.href}
-          class="text-lg font-bold relative transition-colors duration-300 flex items-center gap-2"
+          class="text-lg font-bold border-2 border-white px-4 py-2 text-white hover:bg-white hover:text-black transition-colors"
         >
-          <span class={!isActive(link.href) ? "hover:underline relative" : "relative"}>
-            {link.label}
-            {!isActive(link.href) && (
-              <span
-                class="absolute left-0 -bottom-1 w-full h-0.5 bg-current transition-all duration-300 opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100"
-                style={{
-                  transformOrigin: "left",
-                  transitionProperty: "opacity, transform",
-                  transform: "scaleX(0)",
-                }}
-                aria-hidden="true"
-              />
-            )}
-          </span>
+          [{link.label}]
         </a>
       ))}
-    <div class="flex items-center space-x-4">
-      <ul class="flex space-x-4">
+    <div class="flex items-center space-x-2">
+      <ul class="flex space-x-2">
         {navLinks
           .filter((link) => !link.isBrand)
           .map((link) => (
             <li>
               <a
                 href={link.href}
-                class={`relative transition-colors duration-300 ${isActive(link.href) ? 'font-bold' : 'text-stone-400'}`}
+                class={`border-2 border-white px-4 py-2 hover:bg-white hover:text-black transition-colors ${isActive(link.href) ? 'bg-white text-black font-bold' : 'text-white'}`}
               >
-                <span class={!isActive(link.href) ? "hover:underline relative" : "relative"}>
-                  {link.label}
-                  {!isActive(link.href) && (
-                    <span
-                      class="absolute left-0 -bottom-1 w-full h-0.5 bg-current transition-all duration-300 opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100"
-                      style={{
-                        transformOrigin: "left",
-                        transitionProperty: "opacity, transform",
-                        transform: "scaleX(0)",
-                      }}
-                      aria-hidden="true"
-                    />
-                  )}
-                </span>
+                {link.label}
               </a>
             </li>
           ))}

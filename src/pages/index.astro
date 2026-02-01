@@ -3,55 +3,50 @@ import "../styles/global.css";
 import Layout from "./layout.astro";
 ---
 <Layout>
-  <section class="space-y-4">
-    <p>
-      Hey, I'm Alex Gaudon. I build web stuff.
-    </p>
-    <p>
-      Software Dev @
-      <a
-        href="https://www.colabsoftware.com"
-        class="text-blue-400 underline hover:text-blue-300 transition-colors"
-        target="_blank"
-        rel="noopener noreferrer"
-      >CoLab Software</a>.
-    </p>
-    <p>
-      Building 
-      <a
-        href="https://github.com/AlexGaudon/tallyo"
-        class="text-blue-400 underline hover:text-blue-300 transition-colors"
-        target="_blank"
-        rel="noopener noreferrer"
-        transition:name="tallyo"
-      >Tallyo</a> in my free time.
-    </p>
-    <p>
-      Prev Software Dev @
-      <a
-        href="https://www.clearrisk.com"
-        class="text-blue-400 underline hover:text-blue-300 transition-colors"
-        target="_blank"
-        rel="noopener noreferrer"
-      >ClearRisk</a>.
-    </p>
-    <p>
-      This site has a few of my
-      <a
-        href="/projects"
-        class="text-blue-400 underline hover:text-blue-300 transition-colors"
-      >projects</a>.
-    </p>
-    <p>
-      <s class="opacity-50">Want to say hi? I'm usually hanging out Thursdays at
-      <a
-        href="https://ctsnl.ca/"
-        class="text-blue-400 underline hover:text-blue-300 transition-colors"
-        target="_blank"
-        rel="noopener noreferrer"
-      >CTSNL</a>
-      meetups:
-      <span class="text-stone-400">Thursdays @ 7:00pm, Jumping Bean, Elizabeth Ave.</span></s>
-    </p>
+  <section class="space-y-6">
+    <div class="border-2 border-white p-4 bg-[#0a0a0a]">
+      <p class="text-xl">Hey, I'm Alex Gaudon. I build web stuff.</p>
+    </div>
+    
+    <div class="border-2 border-white p-4">
+      <p>
+        Software Dev @
+        <a
+          href="https://www.colabsoftware.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >CoLab Software</a>
+      </p>
+    </div>
+    
+    <div class="border-2 border-white p-4">
+      <p>
+        Building 
+        <a
+          href="https://github.com/AlexGaudon/tallyo"
+          target="_blank"
+          rel="noopener noreferrer"
+          transition:name="tallyo"
+        >Tallyo</a> in my free time.
+      </p>
+    </div>
+    
+    <div class="border-2 border-white p-4">
+      <p>
+        Prev Software Dev @
+        <a
+          href="https://www.clearrisk.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >ClearRisk</a>
+      </p>
+    </div>
+    
+    <div class="border-2 border-white p-4">
+      <p>
+        This site has a few of my
+        <a href="/projects">projects</a>
+      </p>
+    </div>
   </section>
 </Layout>

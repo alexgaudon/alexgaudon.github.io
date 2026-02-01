@@ -5,37 +5,53 @@ import Layout from "./layout.astro";
 <style is:global>
   ::view-transition-old(tallyo),
   ::view-transition-new(tallyo) {
-    animation-duration: 0.8s;
-    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
   }
 </style>
 
 <Layout>
-  <h1 class="text-2xl font-bold mb-4">Projects</h1>
-  <ul class="list-disc list-inside space-y-2">
-    <li>
-      <a href="https://github.com/AlexGaudon/tallyo" class="text-blue-400 underline hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer" transition:name="tallyo">Tallyo</a>
-      – My take on a personal finance tracker, since <a href="https://en.wikipedia.org/wiki/Intuit_Mint#Shut_down" class="text-blue-400 underline hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">Mint</a> ran out of money.
-    </li>
-    <li>
-      <a href="https://github.com/AlexGaudon/overs.sh" class="text-blue-400 underline hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">overs.sh</a>
-      – Super simple file transfer between servers over SSH. Dead easy.
-    </li>
-    <li>
-      <a href="https://misery.systems" class="text-blue-400 underline hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">misery.systems</a>
-      – Where I mess around with my homelab (yeah, it's really called "misery.systems").
-    </li>
-    <li>
-      <a href="https://github.com/AlexGaudon/stocky" class="text-blue-400 underline hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">stocky</a>
-      – A Discord bot that spits out stock prices on command.
-    </li>
-    <li>
-      <a href="https://github.com/alexgaudon/ntfy-bridge" class="text-blue-400 underline hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">ntfy-bridge</a>
-      – Bridges Discord and <a href="https://ntfy.sh" class="text-blue-400 underline hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">ntfy.sh</a> so you can get notifications wherever you want.
-    </li>
-    <li>
-      <a href="https://github.com/alexgaudon/lootsheet" class="text-blue-400 underline hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">LootSheet</a>
-      – A simple group hunting loot splitter for Tibia.
-    </li>
-  </ul>
+  <div class="space-y-4">
+    <div class="border-2 border-white p-4">
+      <p>
+        <a href="https://github.com/AlexGaudon/tallyo" target="_blank" rel="noopener noreferrer" transition:name="tallyo">[Tallyo]</a>
+        – My take on a personal finance tracker, since <a href="https://en.wikipedia.org/wiki/Intuit_Mint#Shut_down" target="_blank" rel="noopener noreferrer">[Mint]</a> ran out of money.
+      </p>
+    </div>
+    
+    <div class="border-2 border-white p-4">
+      <p>
+        <a href="https://github.com/AlexGaudon/overs.sh" target="_blank" rel="noopener noreferrer">[overs.sh]</a>
+        – Super simple file transfer between servers over SSH. Dead easy.
+      </p>
+    </div>
+    
+    <div class="border-2 border-white p-4">
+      <p>
+        <a href="https://misery.systems" target="_blank" rel="noopener noreferrer">[misery.systems]</a>
+        – Where I mess around with my homelab (yeah, it's really called "misery.systems").
+      </p>
+    </div>
+    
+    <div class="border-2 border-white p-4">
+      <p>
+        <a href="https://github.com/AlexGaudon/stocky" target="_blank" rel="noopener noreferrer">[stocky]</a>
+        – A Discord bot that spits out stock prices on command.
+      </p>
+    </div>
+    
+    <div class="border-2 border-white p-4">
+      <p>
+        <a href="https://github.com/alexgaudon/ntfy-bridge" target="_blank" rel="noopener noreferrer">[ntfy-bridge]</a>
+        – Bridges Discord and <a href="https://ntfy.sh" target="_blank" rel="noopener noreferrer">[ntfy.sh]</a> so you can get notifications wherever you want.
+      </p>
+    </div>
+    
+    <div class="border-2 border-white p-4">
+      <p>
+        <a href="https://github.com/alexgaudon/lootsheet" target="_blank" rel="noopener noreferrer">[LootSheet]</a>
+        – A simple group hunting loot splitter for Tibia.
+      </p>
+    </div>
+  </div>
 </Layout>

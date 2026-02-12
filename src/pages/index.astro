@@ -1,0 +1,14 @@
+---
+import Link from "../components/Link.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="space-y-3 text-lg" style="color:var(--cat-text)">
+    <p>Hey, I'm <span style="color:var(--cat-peach)" class="font-bold">Alex Gaudon</span>. I build web stuff.</p>
+    <p>Software Dev @ <span style="color: var(--cat-teal)"><Link href="https://www.colabsoftware.com">CoLab Software</Link></span></p>
+    <p>Building <span style="color: var(--cat-teal)"><Link href="https://github.com/AlexGaudon/tallyo">Tallyo</Link></span> in my free time.</p>
+    <p>Prev Software Dev @ <span style="color: var(--cat-text)"><Link href="https://www.clearrisk.com">ClearRisk</Link></span></p>
+    <p>This site has a few of my <span style="color: var(--cat-teal)"><Link href="/projects">projects</Link></span></p>
+  </div>
+</Layout>

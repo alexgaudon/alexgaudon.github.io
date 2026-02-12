@@ -1,0 +1,91 @@
+---
+import Link from '../components/Link.astro';
+import "../styles/global.css";
+
+const currentPath = Astro.url.pathname;
+const currentPage =
+  currentPath === "/"
+    ? "index"
+    : currentPath.replace(/^\//, "").replace(/\/$/, "");
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alex Gaudon</title>
+    <meta name="description" content="Hey, I'm Alex Gaudon. I build web stuff." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="bg-[var(--cat-base)] m-0 min-h-screen font-mono text-[var(--cat-text)]">
+    <span class="hidden sm:block top-4 right-4 z-[100] fixed font-semibold text-xl" style="color:var(--cat-text)">alexgaudon.dev</span>
+    <header class="flex justify-between items-center bg-[var(--cat-base)] p-4">
+      <button type="button" class="hover:bg-[var(--cat-surface)] p-2 rounded-lg text-[var(--cat-text)] transition-colors menu-toggle" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 5h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 19h16"></path>
+        </svg>
+      </button>
+      <span class="sm:hidden font-semibold text-xl" style="color:var(--cat-text)">alexgaudon.dev</span>
+    </header>
+
+    <aside class="top-0 left-0 z-50 fixed flex flex-col w-64 h-full transition-transform -translate-x-full sm:translate-x-0 duration-300 sidebar" id="sidebar">
+      <nav class="flex-1 p-4 overflow-y-auto">
+        <a href="/" class="flex items-center gap-3 mb-2 p-3 rounded-lg transition-colors" class:list={[{ 'bg-[var(--cat-teal)] text-[var(--cat-base)]': currentPage === 'index' }, { 'hover:bg-[var(--cat-surface-alt)] text-[var(--cat-text)]': currentPage !== 'index' }]}>
+          <span class="font-medium">home</span>
+        </a>
+        <a href="/projects" class="flex items-center gap-3 mb-2 p-3 rounded-lg transition-colors" class:list={[{ 'bg-[var(--cat-teal)] text-[var(--cat-base)]': currentPage === 'projects' }, { 'hover:bg-[var(--cat-surface-alt)] text-[var(--cat-text)]': currentPage !== 'projects' }]}>
+          <span class="font-medium">projects</span>
+        </a>
+        <div class="bg-[var(--cat-base)] mt-8 p-4 rounded-lg">
+          <div class="mb-2 font-medium text-sm" style="color:var(--cat-subtext)">Quick Links</div>
+          <div class="space-y-2 text-sm">
+            <a href="https://github.com/AlexGaudon" target="_blank" rel="noopener noreferrer" class="block hover:underline" style="color:var(--cat-teal)">GitHub</a>
+            <a href="https://linkedin.com/in/alexgaudon/" target="_blank" rel="noopener noreferrer" class="block hover:underline" style="color:var(--cat-teal)">LinkedIn</a>
+            <a href="mailto:hello@alexgaudon.dev" class="block hover:underline" style="color:var(--cat-teal)">Email</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="invisible z-40 fixed inset-0 bg-black/50 opacity-0 transition-opacity duration-300 overlay" id="overlay"></div>
+
+    <main class="bg-[var(--cat-base)] p-6 min-h-screen overflow-y-auto font-mono text-[var(--cat-text)]" style="font-family:'JetBrains Mono', monospace;color:var(--cat-text)">
+      <div class="mx-auto max-w-3xl">
+        <slot />
+      </div>
+    </main>
+
+    <script>
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      const menuToggle = document.querySelector('.menu-toggle');
+
+      menuToggle?.addEventListener('click', () => {
+        sidebar?.classList.remove('-translate-x-full');
+        overlay?.classList.remove('opacity-0', 'invisible');
+      });
+
+      overlay?.addEventListener('click', () => {
+        sidebar?.classList.add('-translate-x-full');
+        overlay?.classList.add('opacity-0', 'invisible');
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          sidebar?.classList.add('-translate-x-full');
+          overlay?.classList.add('opacity-0', 'invisible');
+        }
+      });
+
+      document.querySelectorAll('.terminal-link').forEach(link => {
+        link.textContent = `[${link.textContent?.trim()}]`;
+      });
+    </script>
+
+  </body>
+</html>

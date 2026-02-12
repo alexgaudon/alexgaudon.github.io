@@ -1,133 +1,108 @@
 @import "tailwindcss";
 
-/* Blocky, monospace, black & white theme */
 :root {
-	--bg-primary: #000000;
-	--bg-secondary: #111111;
-	--bg-tertiary: #222222;
-	--text-primary: #ffffff;
-	--text-secondary: #aaaaaa;
-	--text-muted: #666666;
-	--border-color: #ffffff;
-	--border-secondary: #333333;
+  /* Catppuccin Colors */
+  --cat-rosewater: #f5e0dc;
+  --cat-flamingo: #f2cdcd;
+  --cat-pink: #f5c2e7;
+  --cat-mauve: #cba6f7;
+  --cat-red: #f38ba8;
+  --cat-maroon: #eba0ac;
+  --cat-peach: #fab387;
+  --cat-yellow: #f9e2af;
+  --cat-green: #a6e3a1;
+  --cat-teal: #94e2d5;
+  --cat-sky: #89dceb;
+  --cat-sapphire: #74c7ec;
+  --cat-blue: #89b4fa;
+  --cat-lavender: #b4befe;
+  --cat-text: #cdd6f4;
+  --cat-subtext-1: #bac2de;
+  --cat-subtext-0: #a6adc8;
+  --cat-overlay-2: #9399b2;
+  --cat-overlay-1: #7f849c;
+  --cat-overlay-0: #6c7086;
+  --cat-surface-2: #585b70;
+  --cat-surface-1: #45475a;
+  --cat-surface-0: #313244;
+  --cat-surface: #313244;
+  --cat-surface-alt: #45475a;
+  --cat-base: #1e1e2e;
+  --cat-mantle: #181825;
+  --cat-crust: #11111b;
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		--bg-primary: #ffffff;
-		--bg-secondary: #f5f5f5;
-		--bg-tertiary: #e0e0e0;
-		--text-primary: #000000;
-		--text-secondary: #555555;
-		--text-muted: #999999;
-		--border-color: #000000;
-		--border-secondary: #cccccc;
-	}
-}
-
-* {
-	font-family: "Courier New", Courier, monospace;
-	box-sizing: border-box;
-}
-
-html,
-body {
-	background-color: var(--bg-primary);
-	color: var(--text-primary);
-}
-
-@media (max-width: 640px) {
-	html {
-		font-size: 14px;
-	}
-}
-
-/* Blocky borders and corners */
-.border-block {
-	border: 2px solid var(--border-color);
-}
-
-.border-block-thick {
-	border: 4px solid var(--border-color);
-}
-
-/* No rounded corners anywhere */
-* {
-	border-radius: 0;
-}
-
-/* Links styling */
-a {
-	color: var(--text-primary);
-	text-decoration: none;
-	border-bottom: 1px solid var(--text-primary);
-}
-
-a:hover {
-	color: var(--text-muted);
-}
-
-/* Navigation link specific */
-nav a {
-	border-bottom: 2px solid var(--text-primary);
-}
-
-nav a:hover {
-	background-color: var(--text-primary);
-	color: var(--bg-primary);
-}
-
-/* Section blocks */
-.block-section {
-	border: 2px solid var(--border-color);
-	padding: 1.5rem;
-	margin-bottom: 1rem;
-	background-color: var(--bg-secondary);
-}
-
-/* Terminal-style cursor */
-.cursor-block::after {
-	content: "_";
-	animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-	50% {
-		opacity: 0;
-	}
-}
-
-/* Scrollbar styling */
 ::-webkit-scrollbar {
-	width: 12px;
-	height: 12px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-	background: var(--bg-primary);
-	border: 2px solid var(--border-color);
+  background: var(--cat-base);
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--text-primary);
-	border: 2px solid var(--bg-primary);
+  background: var(--cat-surface-alt);
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: var(--text-secondary);
+  background: var(--cat-gray);
 }
 
-/* Selection styling */
 ::selection {
-	background-color: var(--text-primary);
-	color: var(--bg-primary);
+  background-color: var(--cat-surface-alt);
+  color: var(--cat-text);
 }
 
-/* Terminal output styling */
-.terminal-output {
-	font-family: "Courier New", Courier, monospace;
+.sidebar {
+  background-color: var(--cat-surface);
 }
 
-.terminal-output a {
-	border-bottom: 1px solid var(--text-primary);
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.terminal-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: color 150ms ease-in-out;
+}
+
+.terminal-link:hover {
+  color: var(--cat-text);
+}
+
+@media (min-width: 640px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+
+  main {
+    margin-left: 256px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 639px) {
+  main {
+    margin-left: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+main > div {
+  animation: fadeIn 200ms ease-in-out;
 }

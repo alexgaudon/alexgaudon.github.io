@@ -322,6 +322,68 @@ body {
   border-top: 1px solid var(--border);
 }
 
+.projects-home__row {
+  align-items: flex-start;
+}
+
+.projects-home__main {
+  align-items: flex-start;
+}
+
+.projects-home .experience__avatar--tallyo svg,
+.projects-home .experience__avatar--misery svg {
+  width: 20px;
+  height: 20px;
+}
+
+.projects-home__body {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 12rem;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.projects-home__title {
+  margin: 0;
+  line-height: 1.35;
+}
+
+.projects-home__desc {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.projects-home__inline-link {
+  border-radius: 0.15rem;
+  font-weight: 500;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--text-muted) 45%, transparent);
+  text-underline-offset: 0.18em;
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
+}
+
+.projects-home__inline-link:hover {
+  color: var(--accent);
+  text-decoration-color: color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.projects-home__inline-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.projects-home .experience__dates.projects-home__link {
+  margin-top: 0.12rem;
+}
+
 .projects-home__link {
   font-size: 0.875rem;
   font-variant-numeric: tabular-nums;

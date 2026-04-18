@@ -1,5 +1,4 @@
 ---
-import Link from "../components/Link.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -9,7 +8,9 @@ import Layout from "../layouts/Layout.astro";
       <h1 class="text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl">
         Hey, I&apos;m <span class="text-[var(--accent)]">Alex Gaudon</span>.
       </h1>
-      <p class="max-w-xl text-lg leading-relaxed text-[var(--text-muted)]">I build web stuff.</p>
+      <p class="max-w-xl text-lg leading-relaxed text-[var(--text-muted)]">
+        I build web stuff, and I like keeping up with health &amp; fitness when I&apos;m not working.
+      </p>
     </div>
 
     <div class="experience animate-rise animate-rise-delay-1">
@@ -45,8 +46,8 @@ import Layout from "../layouts/Layout.astro";
     <div class="projects-home animate-rise animate-rise-delay-1">
       <p class="experience__label">Projects</p>
       <ul class="experience__list">
-        <li class="experience__row">
-          <div class="experience__main">
+        <li class="experience__row projects-home__row">
+          <div class="experience__main projects-home__main">
             <div class="experience__avatar experience__avatar--tallyo" aria-hidden="true">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,12 +67,20 @@ import Layout from "../layouts/Layout.astro";
                 <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path>
               </svg>
             </div>
-            <p class="experience__line">
-              <a class="experience__company" href="https://github.com/AlexGaudon/tallyo">Tallyo</a>
-              <span class="experience__role">
-                My take on a personal finance tracker, since <Link href="https://en.wikipedia.org/wiki/Intuit_Mint#Shut_down">Mint</Link> ran out of money.
-              </span>
-            </p>
+            <div class="projects-home__body">
+              <p class="projects-home__title">
+                <a class="experience__company" href="https://github.com/AlexGaudon/tallyo">Tallyo</a>
+              </p>
+              <p class="projects-home__desc">
+                My take on a personal finance tracker, since
+                <a
+                  class="projects-home__inline-link"
+                  href="https://en.wikipedia.org/wiki/Intuit_Mint#Shut_down"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Mint</a> ran out of money.
+              </p>
+            </div>
           </div>
           <a
             class="experience__dates projects-home__link"
@@ -82,8 +91,8 @@ import Layout from "../layouts/Layout.astro";
             GitHub
           </a>
         </li>
-        <li class="experience__row">
-          <div class="experience__main">
+        <li class="experience__row projects-home__row">
+          <div class="experience__main projects-home__main">
             <div class="experience__avatar experience__avatar--misery" aria-hidden="true">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -101,12 +110,14 @@ import Layout from "../layouts/Layout.astro";
                 <path d="M1 18h22"></path>
               </svg>
             </div>
-            <p class="experience__line">
-              <a class="experience__company" href="https://misery.systems">misery.systems</a>
-              <span class="experience__role">
+            <div class="projects-home__body">
+              <p class="projects-home__title">
+                <a class="experience__company" href="https://misery.systems">misery.systems</a>
+              </p>
+              <p class="projects-home__desc">
                 Where I mess around with my homelab (yeah, it&apos;s really called &quot;misery.systems&quot;).
-              </span>
-            </p>
+              </p>
+            </div>
           </div>
           <a
             class="experience__dates projects-home__link"

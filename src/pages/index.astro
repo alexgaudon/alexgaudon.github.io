@@ -4,11 +4,27 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <div class="space-y-3 text-lg" style="color:var(--cat-text)">
-    <p>Hey, I'm <span style="color:var(--cat-peach)" class="font-bold">Alex Gaudon</span>. I build web stuff.</p>
-    <p>Software Dev @ <span style="color: var(--cat-teal)"><Link href="https://www.colabsoftware.com">CoLab Software</Link></span></p>
-    <p>Building <span style="color: var(--cat-teal)"><Link href="https://github.com/AlexGaudon/tallyo">Tallyo</Link></span> in my free time.</p>
-    <p>Prev Software Dev @ <span style="color: var(--cat-text)"><Link href="https://www.clearrisk.com">ClearRisk</Link></span></p>
-    <p>This site has a few of my <span style="color: var(--cat-teal)"><Link href="/projects">projects</Link></span></p>
-  </div>
+  <section class="animate-rise space-y-10">
+    <div class="space-y-4">
+      <h1 class="text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl">
+        Hey, I&apos;m <span class="text-[var(--accent)]">Alex Gaudon</span>.
+      </h1>
+      <p class="max-w-xl text-lg leading-relaxed text-[var(--text-muted)]">I build web stuff.</p>
+    </div>
+
+    <ul class="animate-rise animate-rise-delay-1 space-y-5 border-t border-[var(--border)] pt-10 text-base leading-relaxed text-[var(--text-muted)]">
+      <li>
+        Software Dev @ <Link href="https://www.colabsoftware.com">CoLab Software</Link>
+      </li>
+      <li>
+        Building <Link href="https://github.com/AlexGaudon/tallyo">Tallyo</Link> in my free time.
+      </li>
+      <li>
+        Prev Software Dev @ <Link href="https://www.clearrisk.com">ClearRisk</Link>
+      </li>
+      <li>
+        This site has a few of my <Link href="/projects">projects</Link>
+      </li>
+    </ul>
+  </section>
 </Layout>

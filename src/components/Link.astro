@@ -4,9 +4,15 @@ interface Props {
   class?: string;
 }
 
-const { href, class: className = '' } = Astro.props;
+const { href, class: className = "" } = Astro.props;
 ---
 
-<a href={href} class:list={['terminal-link', className]}>
+<a
+  href={href}
+  class:list={[
+    "link-underline font-medium text-[var(--accent)] transition-colors hover:text-[var(--accent-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)] rounded-sm",
+    className,
+  ]}
+>
   <slot />
 </a>

@@ -1,12 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Link from "../components/Link.astro";
+import Layout from "../layouts/Layout.astro";
 ---
+
 <Layout>
-  <section class="space-y-4 text-center">
-    <h1 class="text-4xl font-bold">404</h1>
-    <p>Page not found.</p>
-    <p>
-      <a href="/" class="text-blue-400 hover:underline">Go back home</a>
+  <section class="animate-rise py-10 text-center sm:py-16">
+    <h1 class="text-6xl font-semibold tracking-tight text-[var(--text)] sm:text-7xl">404</h1>
+    <p class="mx-auto mt-4 max-w-sm text-[var(--text-muted)]">Page not found.</p>
+    <p class="mt-10">
+      <Link href="/">Go back home</Link>
     </p>
   </section>
 </Layout>

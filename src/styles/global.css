@@ -7,9 +7,9 @@
   --text: #fafafa;
   --text-muted: #a1a1aa;
   --text-subtle: #71717a;
-  --accent: #34d399;
-  --accent-hover: #6ee7b7;
-  --ring: rgba(52, 211, 153, 0.35);
+  --accent: #fb923c;
+  --accent-hover: #fdba74;
+  --ring: rgba(251, 146, 60, 0.38);
 }
 
 *,
@@ -33,7 +33,7 @@ body {
 }
 
 ::selection {
-  background: rgba(52, 211, 153, 0.22);
+  background: rgba(251, 146, 60, 0.22);
   color: var(--text);
 }
 

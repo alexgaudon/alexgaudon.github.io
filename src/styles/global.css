@@ -180,6 +180,41 @@ body {
   padding: 1.35rem 0;
 }
 
+.experience__row--past {
+  position: relative;
+  isolation: isolate;
+  opacity: 0.58;
+  transition: opacity 0.26s ease;
+}
+
+.experience__row--past::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 22%,
+    color-mix(in srgb, var(--bg) 22%, transparent) 55%,
+    color-mix(in srgb, var(--bg) 68%, transparent) 88%,
+    color-mix(in srgb, var(--bg) 82%, transparent) 100%
+  );
+  opacity: 1;
+  transition: opacity 0.26s ease;
+}
+
+.experience__row--past:hover,
+.experience__row--past:focus-within {
+  opacity: 1;
+}
+
+.experience__row--past:hover::after,
+.experience__row--past:focus-within::after {
+  opacity: 0;
+}
+
 .experience__main {
   display: flex;
   min-width: 0;

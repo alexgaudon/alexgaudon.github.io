@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
+<Layout preloadImages={["/colab.png", "/clearrisk.png"]}>
   <section class="flex flex-col gap-[var(--section-divider-gap)]">
     <div class="space-y-3">
       <h1 class="text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl">
@@ -19,7 +19,15 @@ import Layout from "../layouts/Layout.astro";
         <li class="experience__row">
           <div class="experience__main">
             <div class="experience__avatar" aria-hidden="true">
-              <img src="/colab.png" alt="" width="36" height="36" loading="lazy" decoding="async" />
+              <img
+                src="/colab.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
             </div>
             <p class="experience__line">
               <a class="experience__company" href="https://www.colabsoftware.com">CoLab Software</a>
@@ -31,7 +39,15 @@ import Layout from "../layouts/Layout.astro";
         <li class="experience__row">
           <div class="experience__main">
             <div class="experience__avatar" aria-hidden="true">
-              <img src="/clearrisk.png" alt="" width="36" height="36" loading="lazy" decoding="async" />
+              <img
+                src="/clearrisk.png"
+                alt=""
+                width="36"
+                height="36"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
             </div>
             <p class="experience__line">
               <a class="experience__company" href="https://www.clearrisk.com">ClearRisk</a>

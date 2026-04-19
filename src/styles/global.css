@@ -12,7 +12,6 @@
   --accent: #fb923c;
   --accent-hover: #fdba74;
   --ring: rgba(251, 146, 60, 0.38);
-  --glow: rgba(251, 146, 60, 0.12);
   --scrollbar-thumb: #3f3f46;
   --scrollbar-thumb-hover: #52525b;
   /* Space above a section divider = padding below it (homepage Experience / Projects) */
@@ -31,7 +30,6 @@
     --accent: #ea580c;
     --accent-hover: #c2410c;
     --ring: rgba(234, 88, 12, 0.35);
-    --glow: rgba(234, 88, 12, 0.1);
     --scrollbar-thumb: #d4d4d8;
     --scrollbar-thumb-hover: #a1a1aa;
   }

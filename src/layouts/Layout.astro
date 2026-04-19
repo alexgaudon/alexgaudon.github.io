@@ -1,6 +1,13 @@
 ---
 import "../styles/global.css";
 
+interface Props {
+  /** Paths (e.g. `/logo.png`) to `<link rel="preload" as="image">` in the document head */
+  preloadImages?: readonly string[];
+}
+
+const { preloadImages = [] } = Astro.props;
+
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === "/" || currentPath === "";
 const isProjects = currentPath === "/projects" || currentPath === "/projects/";
@@ -23,16 +30,11 @@ const isProjects = currentPath === "/projects" || currentPath === "/projects/";
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {preloadImages.map((href) => (
+      <link rel="preload" href={href} as="image" fetchpriority="high" />
+    ))}
   </head>
   <body class="m-0 min-h-dvh text-[var(--text)] antialiased">
-    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div
-        class="absolute -top-32 left-1/2 h-[28rem] w-[min(80rem,100vw)] -translate-x-1/2 rounded-[100%] opacity-40 blur-3xl"
-        style="background: radial-gradient(ellipse at center, var(--glow) 0%, transparent 65%);"
-      >
-      </div>
-    </div>
-
     <a href="#content" class="skip-link">Skip to content</a>
 
     <header

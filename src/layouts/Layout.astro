@@ -33,6 +33,7 @@ const isProjects = currentPath === "/projects" || currentPath === "/projects/";
     {preloadImages.map((href) => (
       <link rel="preload" href={href} as="image" fetchpriority="high" />
     ))}
+    <script defer src="https://assets.onedollarstats.com/stonks.js"></script>
   </head>
   <body class="m-0 min-h-dvh text-[var(--text)] antialiased">
     <a href="#content" class="skip-link">Skip to content</a>

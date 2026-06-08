@@ -1,0 +1,35 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  featured?: boolean;
+}
+
+const { href, title, featured = false } = Astro.props;
+---
+
+<li
+  class:list={[
+    "group rounded-2xl bg-[var(--bg-elevated)] p-5 shadow-sm transition duration-200 hover:-translate-y-px hover:shadow-md focus-within:-translate-y-px focus-within:shadow-md sm:p-6",
+    featured ? "sm:col-span-2 sm:p-7 bg-[color-mix(in_srgb,var(--accent)_4%,var(--bg-elevated))]" : "",
+  ]}
+>
+  <h2
+    class:list={[
+      "font-semibold tracking-tight text-[var(--text)]",
+      featured ? "text-xl" : "text-lg",
+    ]}
+  >
+    <a
+      href={href}
+      class="rounded-sm text-[var(--text)] no-underline transition-colors hover:text-[var(--accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)]"
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+    >
+      {title}
+    </a>
+  </h2>
+  <p class="mt-2 text-base leading-relaxed text-[var(--text-muted)]">
+    <slot />
+  </p>
+</li>
